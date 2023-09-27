@@ -31,7 +31,7 @@ export default function Home() {
                 {mangas.map((manga,index) => (
                     <tr>
                         <td>{manga.title}</td>
-                        <td>{manga.status}</td>
+                        <td>{manga.readingstatus}</td>
                         <td>{manga.chapter}</td>
                       </tr>
                     ))
