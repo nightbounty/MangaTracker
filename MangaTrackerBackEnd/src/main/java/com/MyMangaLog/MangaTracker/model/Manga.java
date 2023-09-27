@@ -7,7 +7,7 @@ import jakarta.persistence.Id;
 public class Manga {
     @Id
     private String title;
-    private String status;
+    private String readingstatus;
     private Long chapter;
 
     public String getTitle() {
@@ -18,12 +18,12 @@ public class Manga {
         this.title = title;
     }
 
-    public String getStatus() {
-        return status;
+    public String getReadingstatus() {
+        return readingstatus;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setReadingstatus(String readingstatus) {
+        this.readingstatus = readingstatus;
     }
 
     public Long getChapter() {

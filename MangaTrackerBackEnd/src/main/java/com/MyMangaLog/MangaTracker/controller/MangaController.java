@@ -3,14 +3,12 @@ package com.MyMangaLog.MangaTracker.controller;
 import com.MyMangaLog.MangaTracker.model.Manga;
 import com.MyMangaLog.MangaTracker.repository.MangaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://127.0.0.1:5173/")
 public class MangaController {
 
     @Autowired
