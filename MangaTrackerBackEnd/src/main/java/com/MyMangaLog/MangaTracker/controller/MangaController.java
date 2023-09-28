@@ -1,5 +1,6 @@
 package com.MyMangaLog.MangaTracker.controller;
 
+import com.MyMangaLog.MangaTracker.exception.MangaNotFoundException;
 import com.MyMangaLog.MangaTracker.model.Manga;
 import com.MyMangaLog.MangaTracker.repository.MangaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,12 @@ public class MangaController {
     @GetMapping("/mangas")
     List<Manga> getAllMangas(){
         return mangaRepository.findAll();
+    }
+
+    @GetMapping("/manga/{title}")
+    Manga getMangaById(@PathVariable String title) {
+        return mangaRepository.findById(title)
+                .orElseThrow(() -> new MangaNotFoundException(title));
     }
 
 }
