@@ -31,5 +31,15 @@ public class MangaController {
                 .orElseThrow(() -> new MangaNotFoundException(title));
     }
 
+    @PutMapping("/manga/{title}")
+    Manga updateManga(@RequestBody Manga newManga, @PathVariable String title) {
+        return mangaRepository.findById(title)
+                .map(manga -> {
+                    manga.setReadingstatus(newManga.getReadingstatus());
+                    manga.setChapter(newManga.getChapter());
+                    return mangaRepository.save(manga);
+                }).orElseThrow(() -> new MangaNotFoundException(title));
+    }
+
 }
 
