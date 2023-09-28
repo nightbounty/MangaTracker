@@ -6,6 +6,7 @@ import Home from './pages/Home'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AddManga from './mangas/AddManga';
 import EditManga from './mangas/EditManga';
+import ViewManga from './mangas/ViewManga';
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
           <Route exact path="/" element={<Home />} />
           <Route exact path="/addmanga" element={<AddManga />} />
           <Route exact path="/editmanga/:title" element={<EditManga />} />
-          
+          <Route exact path="/viewmanga/:title" element={<ViewManga />} />
         </Routes>
       </Router>
     </>
