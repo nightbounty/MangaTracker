@@ -5,6 +5,7 @@ import { Link, useParams } from "react-router-dom";
 export default function Home() {
     const [mangas, setMangas] = useState([]);
 
+    const {title} = useParams()
   
     useEffect(() => {
       loadMangas();
@@ -14,6 +15,11 @@ export default function Home() {
       const result = await axios.get("http://localhost:8080/mangas");
       setMangas(result.data);
     };
+
+    const deleteManga = async (title) => {
+        await axios.delete("http://localhost:8080/manga/" + title);
+        loadMangas();
+      };
   
  
   
@@ -50,7 +56,7 @@ export default function Home() {
                             </Link>
                             <button
                             className="btn btn-danger mx-2"
-                            onClick={() => deletemanga(manga.title)}
+                            onClick={() => deleteManga(manga.title)}
                             >
                             Delete
                             </button>
