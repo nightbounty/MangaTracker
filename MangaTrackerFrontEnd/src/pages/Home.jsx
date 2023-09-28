@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { Link, useParams } from "react-router-dom";
 
 export default function Home() {
     const [mangas, setMangas] = useState([]);
@@ -25,14 +26,35 @@ export default function Home() {
               <th scope="col">Title</th>
               <th scope="col">ReadingStatus</th>
               <th scope="col">Chapter</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody>
                 {mangas.map((manga,index) => (
                     <tr>
                         <td>{manga.title}</td>
-                        <td>{manga.readingstatus}</td>
+                        <td>{manga.readingstatus }</td>
                         <td>{manga.chapter}</td>
+                        <td>
+                            <Link
+                                className="btn btn-primary mx-2"
+                                to={`/viewmanga/${manga.title}`}
+                            >
+                                View
+                            </Link>
+                            <Link
+                            className="btn btn-outline-primary mx-2"
+                            to={`/editmanga/${manga.title}`}
+                            >
+                                Edit
+                            </Link>
+                            <button
+                            className="btn btn-danger mx-2"
+                            onClick={() => deletemanga(manga.title)}
+                            >
+                            Delete
+                            </button>
+                        </td>
                       </tr>
                     ))
                 }
