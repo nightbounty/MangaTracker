@@ -41,5 +41,14 @@ public class MangaController {
                 }).orElseThrow(() -> new MangaNotFoundException(title));
     }
 
+    @DeleteMapping("/manga/{title}")
+    String deleteManga(@PathVariable String title){
+        if(!mangaRepository.existsById(title)){
+            throw new MangaNotFoundException(title);
+        }
+        mangaRepository.deleteById(title);
+        return  "Manga with id "+title+" has been deleted success.";
+    }
+
 }
 
