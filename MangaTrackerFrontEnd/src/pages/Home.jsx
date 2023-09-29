@@ -29,19 +29,19 @@ export default function Home() {
         <table className="table border shadow">
           <thead>
             <tr>
-              <th scope="col">Title</th>
-              <th scope="col">ReadingStatus</th>
-              <th scope="col">Chapter</th>
-              <th scope="col">Action</th>
+            <th scope="col" className="text-center">Title</th>
+            <th scope="col" className="text-center">ReadingStatus</th>
+            <th scope="col" className="text-center">Chapter</th>
+            <th scope="col" className="text-center">Action</th>
             </tr>
           </thead>
           <tbody>
                 {mangas.map((manga,index) => (
                     <tr>
-                        <td>{manga.title}</td>
-                        <td>{manga.readingstatus }</td>
-                        <td>{manga.chapter}</td>
-                        <td>
+                        <td className="text-center">{manga.title}</td>
+                        <td className="text-center">{manga.readingstatus }</td>
+                        <td className="text-center">{manga.chapter}</td>
+                        <td className="text-center">
                             <Link
                                 className="btn btn-primary mx-2"
                                 to={`/viewmanga/${manga.title}`}
@@ -62,10 +62,8 @@ export default function Home() {
                             </button>
                         </td>
                       </tr>
-                    ))
-                }
+                    ))}
 
-           
           </tbody>
         </table>
       </div>
